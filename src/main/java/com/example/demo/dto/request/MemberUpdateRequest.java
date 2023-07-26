@@ -7,6 +7,5 @@ import lombok.NonNull;
 public class MemberUpdateRequest {
     Long id;
     String name;
-//    @NonNull
     String email;
 }

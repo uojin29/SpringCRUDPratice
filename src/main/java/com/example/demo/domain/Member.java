@@ -15,9 +15,7 @@ public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long id;
-//    @NonNull
     private String name;
-//    @NonNull
     private String email;
 
     public void update(MemberUpdateRequest request) {

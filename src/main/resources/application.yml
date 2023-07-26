@@ -11,3 +11,8 @@ spring:
     properties:
       hibernate:
         show_sql: true
+
+  openai:
+    api:
+      url: https://api.openai.com/v1/chat/completions
+      key: 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

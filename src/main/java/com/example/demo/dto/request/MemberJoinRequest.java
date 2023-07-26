@@ -5,8 +5,6 @@ import lombok.NonNull;
 
 @Data
 public class MemberJoinRequest {
-//    @NonNull
     String name;
-//    @NonNull
     String email;
 }
