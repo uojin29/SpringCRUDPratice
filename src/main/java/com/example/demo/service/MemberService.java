@@ -44,9 +44,9 @@ public class MemberService {
     }
 
     // 아이디로 검색
-    public MemberResponse showById(Long id){
+    public Member showById(Long id){
         Member member = memberRepository.findById(id);
-        return MemberResponse.builder()
+        return Member.builder()
                 .id(member.getId())
                 .name(member.getName())
                 .email(member.getEmail())

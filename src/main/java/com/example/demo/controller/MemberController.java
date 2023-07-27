@@ -21,7 +21,7 @@ public class MemberController {
     }
 
     @PostMapping("/member/{id}")
-    public ResponseEntity<MemberResponse> showById(@PathVariable Long id){
+    public ResponseEntity<Member> showById(@PathVariable Long id){
         return ResponseEntity.ok(memberService.showById(id));
     }
 

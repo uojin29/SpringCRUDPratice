@@ -7,32 +7,34 @@ import com.example.demo.dto.response.PostResponse;
 import com.example.demo.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-//@Transactional
+@Transactional
 public class PostService {
     private final PostRepository postRepository;
 
-    public PostResponse insert(PostInsertRequest request){
-        Post post = Post.builder()
-                .post_name(request.getPost_name())
-                .price(request.getPrice())
-                .build();
-        postRepository.save(post);
+    public Long insert(Post post){
+//        Post post = Post.builder()
+//                .post_name(request.getPost_name())
+//                .price(request.getPrice())
+//                .build();
+        Post p = postRepository.save(post);
 
-        return PostResponse.builder()
-                .post_id(post.getPost_id())
-                .post_name(post.getPost_name())
-                .price(post.getPrice())
-                .build();
+        return p.getPost_id();
+//        return PostResponse.builder()
+//                .post_id(post.getPost_id())
+//                .post_name(post.getPost_name())
+//                .price(post.getPrice())
+//                .build();
     }
 
     public Post findById(Long post_id){
-//        postRepository.findById(post_id).get();
-        return postRepository.findById(post_id).get();
+        Post post = postRepository.findById(post_id).get();
+        return post;
     }
 
     public List<Post> findAll(){
